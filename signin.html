@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css">
+</head>
+<style>
+    #glass{
+        background-color: whitesmoke;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px;
+        
+    }
+</style>
+<body>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-9 mx-auto shadow">
+              <div class="row mx-auto shadow-lg-8 bg-secondary">
+               <div class="col-9">
+                   <div class="col-9">
+                       <div class="p-9">
+                        <h1 class="text-center text-dark display-5">Sign in your page</h1>
+                        <div style="background-image: url(account3.png); background-position: center; background-repeat: no-repeat; background-size: cover; height: 65px; width: 65px; margin-left: auto;"></div>
+                       <input type="text" placeholder="email" id="mail" class="form-control mt-2 m-3 mx-4">
+                       <input type="text" placeholder="password" id="pass" class="form-control mt-2 m-3 mx-4">
+                   
+                        <button class="btn-danger mx-4" onclick="signIn()">sign in</button>
+                        
+                       </div>
+                   </div>
+               </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+         let allUsers = []
+        let onlineUser = {}
+       allUsers = JSON.parse( localStorage.getItem("userArray"))
+       console.log(allUsers)
+
+       const signIn = () =>{
+        // for (let index = 0; index < allUsers.length; index++) {
+        //     if (allUsers[index].email == mail.value && allUsers[index].password == pass.value)
+        //     {
+        //         onlineUser = allUsers[index]
+        //         console.log(onlineUser)
+        //         break
+        //     }
+        //     else{
+        //             alert("Invald Email or Password")
+                // }
+       
+            onlineUser = allUsers.find((item, index) => item.email==mail.value && item.password==pass.value)
+            console.log(onlineUser)
+            if (onlineUser){
+                localStorage.setItem('currentUser', JSON.stringify(onlineUser))
+                window.location.href = "dashboard.html"
+            }
+            else{
+                alert("Esta invalid")
+            }
+
+            
+        } 
+
+        
+
+
+
+
+
+
+    
+       
+    </script>
+</body>
+</html>
