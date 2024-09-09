@@ -111,74 +111,42 @@
     </div>
   </div>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Transfer</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="recipient-name" class="col-form-label" id="recieverAccName">Account Name</label>
-              <input type="text" disabled value="" class="form-control" id="accountname">
 
-            </div>
-            <div class="mb-3">
-              <label for="message-text" class="col-form-label">Account Number</label>
-              <input type="number" class="form-control" id="accountnumba"></input>
-              <small id="recipient"></small>
-            </div>
-            <div class="mb-3">
-              <label for="message-text" class="col-form-label">Amount</label>
-              <input class="form-control" id="amountSent"></input>
-              <span id="amountSentRes" class="text-danger"></span>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" onclick="transfer()" id="sendMoney"
-            data-bs-dismiss="modal">Send</button>
-        </div>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Open modal for @fat</button>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button> -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Transfer</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">accountname:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">accountNumber:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+        </form>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">amountSent:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send</button>
       </div>
     </div>
   </div>
-  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title" id="exampleModalLabel"> Withdarw</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="recipient-name" class="col-form-label">Account Name</label>
-              <input type="text" disabled value="" class="form-control" id="recieverAccName">
-
-            </div>
-            <div class="mb-3">
-              <label for="message-text" class="col-form-label">Account Number</label>
-              <input type="number" class="form-control" id="recieverAccNo"></input>
-              <small id="recipient"></small>
-            </div>
-            <div class="mb-3">
-              <label for="message-text" class="col-form-label">Amount</label>
-              <input class="form-control" id="amountSent"></input>
-              <span id="amountSentRes" class="text-danger"></span>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" onclick="Withdraw()" id="sendMoney"
-            data-bs-dismiss="modal">Send</button>
-        </div>
-      </div>
-    </div>
-  </div> -->
+</div>
 
 
   <script>
@@ -240,7 +208,7 @@
 
     function transfer (){
       if (validAccNo && validAmountSent){
-        var newOnlineUser  = {...onlineUser, accountBalance: (onlineUser.accountBalance-amountSentRes.value)}
+        var newOnlineUser  = {...onlineUser, accountBalance: (Number+onlineUser.accountBalance - Number+amountSentRes.value)}
         onlineUser = newOnlineUser
         console.log(onlineUser);
         localStorage.setItem("currentUser", JSON.stringify(onlineUser))
@@ -251,6 +219,7 @@
       alert("hello")
     }
 
+   
   </script>
 
 
